@@ -11,7 +11,7 @@ jobs:
       - uses: docker/login-action@v3
         with:
           registry: registry.cn-beijing.aliyuncs.com
-          username: ziyiwoaini
+          username: nick4855555825
           password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
       - run: |
           docker pull nginx:latest
