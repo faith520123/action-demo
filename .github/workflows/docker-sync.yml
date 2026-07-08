@@ -1,0 +1,19 @@
+name: Sync to Aliyun
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.ALIYUN_REGISTRY }}
+          username: ${{ secrets.ALIYUN_NAME_SPACE }}
+          password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
+      - run: |
+          docker pull nginx:latest
+          docker tag nginx:latest ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/ziyiwoaini-1:latest
+          docker push ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/ziyiwoaini-1:latest
