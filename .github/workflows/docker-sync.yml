@@ -10,10 +10,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
         with:
-          registry: registry.cn-beijing.aliyuncs.com
+          registry: crpi-t1g420jmwip6fic.cn-beijing.personal.cr.aliyuncs.com
           username: nick4855555825
           password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
       - run: |
           docker pull nginx:latest
-          docker tag nginx:latest registry.cn-beijing.aliyuncs.com/ziyiwoaini/ziiyiwoaini-1:latest
-          docker push registry.cn-beijing.aliyuncs.com/ziyiwoaini/ziiyiwoaini-1:latest
+          docker tag nginx:latest crpi-t1g420jmwip6fic.cn-beijing.personal.cr.aliyuncs.com/ziyiwoaini/ziiyiwoaini-1:latest
+          docker push crpi-t1g420jmwip6fic.cn-beijing.personal.cr.aliyuncs.com/ziyiwoaini/ziiyiwoaini-1:latest
